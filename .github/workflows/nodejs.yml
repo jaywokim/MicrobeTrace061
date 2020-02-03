@@ -47,8 +47,8 @@ jobs:
           ACTION_MAIL: jwkim1@gmail.com
           ACTION_NAME: jaywokim
           GH_PAT: ${{ secrets.GH_PAT }}
-          MD_FOLDER: temp_release_notes
+          MD_FOLDER: test_notes
           OWNER: jaywokim
-          REPO_NAME: MicrobeTrace
+          REPO_NAME: MicrobeTrace061
           SKIP_MD: README.md
           WIKI_PUSH_MESSAGE: WIKITeST
