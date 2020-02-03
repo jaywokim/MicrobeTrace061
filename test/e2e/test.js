@@ -23,7 +23,8 @@ describe('viz reg test', () => {
         await page.click("#generate-sequences")
         await page.waitFor(500);
         await page.click("#launch")
-        await page.waitFor(2000);
+        await page.waitFor(2500);
+
         global.__basedir = __dirname;
         // const image = fs.readFileSync('./__image_snapshots__/Exp.png')
         // expect(image).toMatchImageSnapshot();
