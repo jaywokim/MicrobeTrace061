@@ -31,8 +31,6 @@ jobs:
         env:
           CI: true
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
-        if: failure()
-        run: |
 
       - uses: actions/upload-artifact@v1
         if: always()
@@ -43,6 +41,7 @@ jobs:
 
       
       - name: Commit changed files
+        if: always()
         uses: stefanzweifel/git-auto-commit-action@v2.5.0
         with:
           commit_message: Apply php-cs-fixer changes
