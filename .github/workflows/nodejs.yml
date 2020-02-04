@@ -38,6 +38,18 @@ jobs:
           name: diff_output
           path: ./test/e2e/__image_snapshots__/__diff_output__
       
+      - name: Push changes to gh-pages
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "Add changes" -a
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GH_PAT }}
+          branch: gh-pages
+
 # step one add token
 # step two add token as a secret
 
