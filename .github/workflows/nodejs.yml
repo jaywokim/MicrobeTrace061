@@ -32,20 +32,26 @@ jobs:
       #     CI: true
       #     PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
 
-      - uses: actions/upload-artifact@v1
-        if: always()
-        with:
-          name: diff_output
-          path: ./test/e2e/__image_snapshots__/__diff_output__
+      # - uses: actions/upload-artifact@v1
+      #   if: always()
+      #   with:
+      #     name: diff_output
+      #     path: ./test/e2e/__image_snapshots__/__diff_output__
       
       - name: Create report file
         run: date +%s > report.txt
       - name: Commit report
         run: |
-          git config --global user.name 'GitHub Action'
-          git config --global user.email 'action@github.com'
-          git commit -am "Automated report"
-          git push
+          REMOTE=https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }}
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git config user.name "${{ github.actor }}"
+
+          git pull ${REMOTE}
+          git checkout gh-pages
+          git add .
+          git status
+          git commit -am "Add new comment"
+          git push ${REMOTE} gh-pages
 
 # step one add token
 # step two add token as a secret
