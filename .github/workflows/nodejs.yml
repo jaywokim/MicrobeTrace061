@@ -46,7 +46,7 @@ jobs:
         with:
           commit_message: Apply php-cs-fixer changes
           branch: ${{ github.base_ref }}
-          file_pattern: report.txt
+          # file_pattern: report.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
