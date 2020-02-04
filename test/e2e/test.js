@@ -2,7 +2,7 @@ const fs = require('fs')
 const { toMatchImageSnapshot } = require('jest-image-snapshot')
 expect.extend({ toMatchImageSnapshot });
 
-const timeout = process.env.SLOWMO ? 30000 : 10000;
+const timeout = process.env.SLOWMO ? 30000 : 30000;
 jest.setTimeout(30000);
 
 describe('viz reg test', () => {
