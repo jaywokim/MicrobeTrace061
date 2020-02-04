@@ -31,12 +31,14 @@ jobs:
         env:
           CI: true
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
+        if: failure()
+        run: |
 
-      # - uses: actions/upload-artifact@v1
-      #   if: always()
-      #   with:
-      #     name: diff_output
-      #     path: ./test/e2e/__image_snapshots__/__diff_output__
+      - uses: actions/upload-artifact@v1
+        if: always()
+        with:
+          name: diff_output
+          path: ./test/e2e/__image_snapshots__/__diff_output__
       
 
       
